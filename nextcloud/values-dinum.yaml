@@ -1,0 +1,49 @@
+nameOverride: "nextcloud-dinum"
+
+image:
+  repository: nextcloud
+  tag: 25.0.12-apache
+  pullPolicy: IfNotPresent
+  replicaCount: 3
+
+nextcloud:
+  host: stockage.beta.numerique.gouv.fr
+  username: admin
+  password: 
+  configs:
+    oidc.config.php: |-
+
+mariadb:
+  enabled: true
+  auth:
+    database: nextcloud
+    username: nextcloud
+    password: "nextmaria"
+
+postgresql:
+  enabled: true
+  global:
+    postgresql:
+      auth:
+        database: nextcloud
+        username: nextcloud
+        password: "nextsql"
+  primary:
+    persistence:
+      enabled: true
+      size: 8Gi
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 8Gi
+
+resources: 
+  requests:
+    cpu: "100m"
+    memory: "256Mi"
+  limits: 
+    cpu: "500m"
+    memory: "1Gi"
+

@@ -1,0 +1,31 @@
+## Hôte virtuel autorisé pour l'accès externe
+endpoint: wekan.beta.numerique.gouv.fr
+
+## URL principale où Wekan est accessible
+root_url: https://wekan.beta.numerique.gouv.fr
+
+
+
+## Ingress
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"  
+  path: /
+  pathtype: ImplementationSpecific
+  hosts: 
+    - wekan.beta.numerique.gouv.fr
+  tls: 
+    - hosts:
+      - wekan.beta.numerique.gouv.fr
+      secretName: betanum
+
+
+  
+
+
+
+
+
+

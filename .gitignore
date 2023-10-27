@@ -1,0 +1,7 @@
+ovh-k8s/main.tf
+certificates/*
+wekan/wekan-smtp-secret.yaml
+nextcloud/oidc-configmap.yaml
+nextcloud/values-dinum-staging.yaml
+
+nextcloud/values.yaml
